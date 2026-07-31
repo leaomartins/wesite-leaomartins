@@ -54,9 +54,16 @@ A página está no ar com **placeholders explícitos**, marcados em amarelo/verd
 na própria tela (`.fill-note`). Prova social inventada é o maior risco de credibilidade
 que existe — nunca publicar texto fictício.
 
-- [ ] **Trabalhos** (`#trabalhos`): trocar os 3 cartões por projetos reais. Formato que
-      converte: problema do cliente → o que foi feito → resultado concreto com número.
-      Substituir também `[ print do projeto ]` por uma imagem real.
+- [x] **Trabalhos** (`#trabalhos`): 4 projetos reais — Peixuxo, NOC Center, ISP Team e
+      Link Lion.
+- [ ] **Números nos cases**: os cartões descrevem o problema e o que foi construído, mas
+      nenhum tem resultado quantificado (tanques monitorados, provedores usando, técnicos
+      ativos, downloads). É o que mais converte — vale acrescentar quando houver o dado.
+- [ ] **ispteam.com.br está retornando 403** (verificado do Brasil e de fora, é o Cloudflare
+      do próprio domínio). Por isso o case do ISP Team está sem link. Religar o site e
+      adicionar o `.case-link`.
+- [ ] **Prints dos projetos**: as capas dos cases hoje são tipográficas. Screenshot real da
+      tela converte mais.
 - [ ] **Depoimentos**: pedir uma frase por WhatsApp aos melhores clientes e publicar com
       nome real e empresa. Enquanto não houver depoimento real, é melhor remover a seção
       inteira do que deixar texto genérico no ar.

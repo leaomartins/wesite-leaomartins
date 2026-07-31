@@ -204,16 +204,34 @@
   .fill-note strong{color:var(--ink)}
 
   /* ---------- Cases ---------- */
-  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
   .case{
     background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;transition:transform .18s ease, border-color .18s ease;
   }
-  .case-img{height:150px;background:var(--panel);display:grid;place-items:center;color:rgba(231,236,234,.5);font-size:.85rem;font-family:'Sora',sans-serif}
-  .case-body{padding:22px}
+  .case:hover{transform:translateY(-4px);border-color:rgba(15,166,120,.5)}
+  .case-cover{
+    background:var(--panel);padding:26px 24px;display:flex;flex-direction:column;gap:5px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  .case-cover .cname{font-family:'Sora',sans-serif;font-weight:700;font-size:1.45rem;color:#fff;letter-spacing:-.015em;line-height:1.15}
+  .case-cover .cdom{font-size:.85rem;color:rgba(231,236,234,.6)}
+  .case-body{padding:24px;display:flex;flex-direction:column;flex:1}
   .case-tag{font-family:'Sora',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-deep)}
-  .case h3{font-size:1.1rem;margin:8px 0}
+  .case h3{font-size:1.08rem;margin:9px 0}
   .case p{color:var(--muted);font-size:.95rem}
-  @media(max-width:900px){.cases{grid-template-columns:1fr}}
+  .stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+  .stack span{
+    font-family:'Sora',sans-serif;font-size:.75rem;font-weight:500;color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:4px 11px;line-height:1.4;
+  }
+  .case-link{
+    display:inline-flex;align-items:center;gap:7px;margin-top:18px;align-self:flex-start;
+    font-family:'Sora',sans-serif;font-weight:600;font-size:.9rem;color:var(--accent-deep);
+  }
+  .case-link:hover{text-decoration:underline}
+  .case-link svg{width:15px;height:15px}
+  @media(max-width:760px){.cases{grid-template-columns:1fr}}
 
   /* ---------- Testimonials ---------- */
   .testi{background:var(--card);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
@@ -438,36 +456,68 @@
       <h2>Projetos reais falam mais alto que promessas.</h2>
     </div>
 
-    <div class="fill-note">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
-      <span><strong>Para você preencher:</strong> substitua os cartões abaixo por 2 a 3 projetos reais. O que mais converte é dizer o problema do cliente, o que você fez e o resultado concreto (tempo economizado, erro reduzido, etc.). Troque também a imagem por um print real do trabalho.</span>
-    </div>
-
     <div class="cases">
+
       <article class="case">
-        <div class="case-img">[ print do projeto ]</div>
+        <div class="case-cover">
+          <span class="cname">Peixuxo</span>
+          <span class="cdom">peixuxo.com.br</span>
+        </div>
         <div class="case-body">
-          <span class="case-tag">Software sob medida</span>
-          <h3>Nome do projeto ou cliente</h3>
-          <p>Qual era o problema, o que você construiu e o resultado que gerou. Uma frase curta com um número concreto.</p>
+          <span class="case-tag">Software sob medida • IoT</span>
+          <h3>Gestão de piscicultura com sensores no tanque</h3>
+          <p>Criação de peixe controlada em caderno e planilha não mostra o que está acontecendo na água. Desenvolvi a plataforma completa — aplicativo de campo, painel administrativo e portal de parceiros — junto com o firmware dos sensores que leem o tanque e enviam a leitura direto para o sistema.</p>
+          <div class="stack"><span>Vue + Quasar</span><span>NestJS</span><span>PostgreSQL</span><span>Firmware C/C++</span></div>
+          <a class="case-link" href="https://peixuxo.com.br" target="_blank" rel="noopener">
+            Ver o projeto
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
         </div>
       </article>
+
       <article class="case">
-        <div class="case-img">[ print do projeto ]</div>
+        <div class="case-cover">
+          <span class="cname">NOC Center</span>
+          <span class="cdom">Produto licenciado para provedores de internet</span>
+        </div>
         <div class="case-body">
-          <span class="case-tag">Site institucional</span>
-          <h3>Nome do projeto ou cliente</h3>
-          <p>Qual era o problema, o que você construiu e o resultado que gerou. Uma frase curta com um número concreto.</p>
+          <span class="case-tag">Produto SaaS • Infraestrutura</span>
+          <h3>Backup centralizado que o provedor consegue auditar</h3>
+          <p>Backup manual só é descoberto quando falha. O sistema executa rotinas de banco e de arquivos por SSH, confere cada arquivo por hash SHA-256 e envia criptografado para o Cloudflare R2. Construí também o painel que licencia as instalações, cobra a assinatura e faz deploy remoto com rollback automático quando a nova versão não sobe.</p>
+          <div class="stack"><span>Nuxt 4</span><span>TypeScript</span><span>Drizzle ORM</span><span>PostgreSQL</span><span>Docker</span><span>Cloudflare R2</span></div>
         </div>
       </article>
+
       <article class="case">
-        <div class="case-img">[ print do projeto ]</div>
+        <div class="case-cover">
+          <span class="cname">ISP Team</span>
+          <span class="cdom">ispteam.com.br</span>
+        </div>
         <div class="case-body">
-          <span class="case-tag">Automação</span>
-          <h3>Nome do projeto ou cliente</h3>
-          <p>Qual era o problema, o que você construiu e o resultado que gerou. Uma frase curta com um número concreto.</p>
+          <span class="case-tag">Integração • Gamificação</span>
+          <h3>Produtividade do time técnico puxada do próprio ERP</h3>
+          <p>O provedor já tinha os atendimentos registrados no IXCsoft, mas nenhuma leitura de desempenho da equipe em campo. Integrei a base do ERP a uma plataforma que transforma o atendimento em meta, nível, ranking e conquista — aplicativo mobile-first para o técnico e painel de campanha para a gestão.</p>
+          <div class="stack"><span>Vue + Quasar</span><span>NestJS 11</span><span>Prisma</span><span>PostgreSQL</span><span>API IXCsoft</span></div>
         </div>
       </article>
+
+      <article class="case">
+        <div class="case-cover">
+          <span class="cname">Link Lion</span>
+          <span class="cdom">linkliongame.io</span>
+        </div>
+        <div class="case-body">
+          <span class="case-tag">Aplicativo mobile</span>
+          <h3>Jogo de plataforma publicado nas lojas</h3>
+          <p>Projeto autoral levado da ideia à publicação: o jogo, o backend que guarda progresso e jogadores, o painel administrativo e todo o processo de assinatura e envio para as lojas de aplicativos.</p>
+          <div class="stack"><span>Vue + Quasar</span><span>NestJS</span><span>Fastlane</span><span>iOS / Android</span></div>
+          <a class="case-link" href="https://linkliongame.io" target="_blank" rel="noopener">
+            Ver o projeto
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
