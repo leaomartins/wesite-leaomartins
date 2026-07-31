@@ -194,15 +194,6 @@
   @media(max-width:820px){.steps{grid-template-columns:repeat(2,1fr);gap:28px}}
   @media(max-width:480px){.steps{grid-template-columns:1fr}}
 
-  /* ---------- Placeholder note ---------- */
-  .fill-note{
-    display:flex;gap:12px;align-items:flex-start;
-    background:rgba(15,166,120,.10);border:1px dashed var(--accent);border-radius:12px;
-    padding:14px 18px;margin-bottom:30px;font-size:.92rem;color:var(--accent-deep);
-  }
-  .fill-note svg{width:20px;height:20px;flex:0 0 20px;margin-top:2px}
-  .fill-note strong{color:var(--ink)}
-
   /* ---------- Cases ---------- */
   .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
   .case{
@@ -233,17 +224,17 @@
   .case-link svg{width:15px;height:15px}
   @media(max-width:760px){.cases{grid-template-columns:1fr}}
 
-  /* ---------- Testimonials ---------- */
+  /* ---------- Clients ---------- */
   .testi{background:var(--card);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
-  .quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-  .quote{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
-  .quote .mark{font-family:'Sora',sans-serif;font-weight:800;font-size:2.2rem;color:var(--accent);line-height:.6;height:22px}
-  .quote p{font-size:1.02rem;color:var(--text);margin:6px 0 20px}
-  .quote .who{display:flex;align-items:center;gap:13px}
-  .avatar{width:44px;height:44px;border-radius:50%;background:var(--panel);color:var(--accent);display:grid;place-items:center;font-family:'Sora',sans-serif;font-weight:700;font-size:.9rem;flex:0 0 44px}
-  .who .name{font-family:'Sora',sans-serif;font-weight:600;color:var(--ink);font-size:.96rem}
-  .who .role{color:var(--muted);font-size:.86rem}
-  @media(max-width:760px){.quotes{grid-template-columns:1fr}}
+  .clients{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .client{
+    background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--radius);
+    padding:24px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow);
+  }
+  .cli-name{font-family:'Sora',sans-serif;font-weight:700;font-size:1.12rem;color:var(--ink);letter-spacing:-.01em}
+  .cli-seg{color:var(--muted);font-size:.9rem;line-height:1.5}
+  @media(max-width:900px){.clients{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.clients{grid-template-columns:1fr}}
 
   /* ---------- FAQ ---------- */
   .faq{max-width:820px;margin:0 auto}
@@ -297,6 +288,7 @@
       <a href="#servicos">Serviços</a>
       <a href="#processo">Como funciona</a>
       <a href="#trabalhos">Trabalhos</a>
+      <a href="#clientes">Clientes</a>
       <a href="#faq">Dúvidas</a>
     </nav>
     <a class="btn btn-primary" href="https://wa.me/5567993103403?text=Ol%C3%A1%2C%20Le%C3%A3o!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">
@@ -522,36 +514,40 @@
   </div>
 </section>
 
-<!-- ================= TESTIMONIALS ================= -->
-<section class="testi">
+<!-- ================= CLIENTS ================= -->
+<section class="testi" id="clientes">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">O que dizem</span>
-      <h2>A palavra de quem já trabalhou comigo.</h2>
+      <span class="eyebrow">Clientes</span>
+      <h2>Operações que rodam com o meu trabalho todo dia.</h2>
+      <p>Sites, sistemas e infraestrutura em produção — não é portfólio de gaveta.</p>
     </div>
 
-    <div class="fill-note">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
-      <span><strong>Para você preencher:</strong> peça uma frase por WhatsApp aos seus melhores clientes e cole aqui com nome real e empresa. Depoimento inventado é o maior risco de credibilidade que existe — nunca use texto fictício no ar.</span>
-    </div>
-
-    <div class="quotes">
-      <blockquote class="quote">
-        <div class="mark">&ldquo;</div>
-        <p>Depoimento real do cliente, com uma frase específica sobre o resultado que ele teve com o trabalho.</p>
-        <div class="who">
-          <span class="avatar">?</span>
-          <div><div class="name">Nome do cliente</div><div class="role">Cargo — Empresa</div></div>
-        </div>
-      </blockquote>
-      <blockquote class="quote">
-        <div class="mark">&ldquo;</div>
-        <p>Depoimento real do cliente, com uma frase específica sobre o resultado que ele teve com o trabalho.</p>
-        <div class="who">
-          <span class="avatar">?</span>
-          <div><div class="name">Nome do cliente</div><div class="role">Cargo — Empresa</div></div>
-        </div>
-      </blockquote>
+    <div class="clients">
+      <div class="client">
+        <span class="cli-name">Link Internet</span>
+        <span class="cli-seg">Provedor de fibra — Sidrolândia/MS</span>
+      </div>
+      <div class="client">
+        <span class="cli-name">Net7 Tecnologia</span>
+        <span class="cli-seg">Provedor de internet — zona rural e aldeias indígenas</span>
+      </div>
+      <div class="client">
+        <span class="cli-name">Recanto D3L</span>
+        <span class="cli-seg">Piscicultura — tilápia em tanque suspenso</span>
+      </div>
+      <div class="client">
+        <span class="cli-name">OneNext</span>
+        <span class="cli-seg">ERP para provedores de internet</span>
+      </div>
+      <div class="client">
+        <span class="cli-name">I.E.R.C.</span>
+        <span class="cli-seg">Igreja Renovação em Cristo — Sidrolândia/MS</span>
+      </div>
+      <div class="client">
+        <span class="cli-name">Peixuxo</span>
+        <span class="cli-seg">Plataforma de gestão para piscicultura</span>
+      </div>
     </div>
   </div>
 </section>
@@ -616,6 +612,7 @@
         <a href="#servicos">Serviços</a>
         <a href="#processo">Como funciona</a>
         <a href="#trabalhos">Trabalhos</a>
+        <a href="#clientes">Clientes</a>
         <a href="#faq">Dúvidas</a>
       </div>
       <div class="foot-col">

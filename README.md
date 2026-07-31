@@ -64,9 +64,12 @@ que existe — nunca publicar texto fictício.
       adicionar o `.case-link`.
 - [ ] **Prints dos projetos**: as capas dos cases hoje são tipográficas. Screenshot real da
       tela converte mais.
-- [ ] **Depoimentos**: pedir uma frase por WhatsApp aos melhores clientes e publicar com
-      nome real e empresa. Enquanto não houver depoimento real, é melhor remover a seção
-      inteira do que deixar texto genérico no ar.
+- [x] **Depoimentos**: seção substituída por uma lista de clientes reais (`#clientes`),
+      já que ainda não há depoimento coletado.
+- [ ] **Autorização dos clientes**: confirmar com Link Internet, Net7, Recanto D3L,
+      OneNext e I.E.R.C. que podem ser citados nominalmente no site.
+- [ ] **Depoimentos de verdade**: quando houver, pedir uma frase por WhatsApp e publicar
+      com nome e empresa reais — nunca texto fictício.
 - [ ] **Imagem de compartilhamento**: criar uma imagem 1200×630 e adicionar
       `<meta property="og:image">`. Hoje a `twitter:card` está como
       `summary_large_image` sem imagem associada.
