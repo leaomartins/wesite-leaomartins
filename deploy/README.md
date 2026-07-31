@@ -3,12 +3,24 @@
 O site é servido por nginx em `45.234.69.132`, no docroot `/var/www/leaomartins`.
 O domínio aponta direto para esse IP (sem CDN na frente).
 
+## Acesso
+
+Autenticação por chave, sem senha. O alias `leao-vps` está em `~/.ssh/config`:
+
+```
+Host leao-vps
+    HostName 45.234.69.132
+    User link
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
+```
+
 ## Publicar
 
 ```bash
 scp index.html og-image.png apple-touch-icon.png robots.txt sitemap.xml \
-    link@45.234.69.132:/var/www/leaomartins/
-ssh link@45.234.69.132 'cd /var/www/leaomartins && chmod 644 *.html *.png *.txt *.xml'
+    leao-vps:/var/www/leaomartins/
+ssh leao-vps 'cd /var/www/leaomartins && chmod 644 *.html *.png *.txt *.xml'
 ```
 
 > **O `chmod` não é opcional.** Os arquivos deste repo estão com modo `600` no macOS.
@@ -23,7 +35,7 @@ com o do servidor pega o caso em que o envio não aconteceu:
 
 ```bash
 md5 -q index.html
-ssh link@45.234.69.132 'md5sum /var/www/leaomartins/index.html'
+ssh leao-vps 'md5sum /var/www/leaomartins/index.html'
 ```
 
 ## nginx
