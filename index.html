@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light dark" />
+<title>Leão Martins | Software sob medida, sites e consultoria de TI</title>
+<meta name="description" content="Desenvolvedor e consultor de TI. Transformo processo manual e planilha em software que sua equipe usa de verdade — do diagnóstico à evolução. Baseado em MS, atendo todo o Brasil." />
+<meta name="author" content="Leão Martins" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://www.leaomartins.com.br/" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:site_name" content="Leão Martins" />
+<meta property="og:title" content="Leão Martins | Software sob medida, sites e consultoria de TI" />
+<meta property="og:description" content="Software que resolve o problema certo do seu negócio. Do diagnóstico à evolução, com atendimento direto do desenvolvedor." />
+<meta property="og:url" content="https://www.leaomartins.com.br/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#F4F5F6" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0B1712" media="(prefers-color-scheme: dark)" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E2A22'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Verdana,sans-serif' font-size='23' font-weight='bold' fill='%230FA678'%3ELM%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    color-scheme:light dark;
+    --paper:#F4F5F6;      /* fundo da página */
+    --card:#FFFFFF;       /* superfícies claras */
+    --panel:#0E2A22;      /* seções escuras (herói-card, processo, rodapé) */
+    --ink:#0E2A22;        /* texto de títulos / texto escuro */
+    --text:#16231E;       /* corpo de texto */
+    --muted:#5B6670;      /* texto secundário */
+    --accent:#0FA678;     /* acento gráfico */
+    --accent-deep:#0B7A57;/* acento em texto (contraste sobre fundo claro) */
+    --btn:#0B7A57;        /* fundo do botão primário */
+    --on-dark:#E7ECEA;    /* texto sobre seções escuras */
+    --line:rgba(14,42,34,.12);
+    --line-soft:rgba(14,42,34,.08);
+    --header-bg:rgba(244,245,246,.82);
+    --radius:14px;
+    --maxw:1140px;
+    --shadow:0 1px 2px rgba(14,42,34,.05), 0 10px 30px rgba(14,42,34,.06);
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#0B1712;
+      --card:#12241D;
+      --panel:#173328;
+      --ink:#F1F5F3;
+      --text:#C9D3CE;
+      --muted:#8B968F;
+      --accent:#16C08A;
+      --accent-deep:#3ACB93;
+      --btn:#0B7A57;
+      --on-dark:#E7ECEA;
+      --line:rgba(255,255,255,.12);
+      --line-soft:rgba(255,255,255,.07);
+      --header-bg:rgba(11,23,18,.82);
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 34px rgba(0,0,0,.4);
+    }
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;background:var(--paper)}
+  body{
+    font-family:'Manrope',system-ui,sans-serif;
+    color:var(--text);
+    background:var(--paper);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.12;color:var(--ink);font-weight:700}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Sora',sans-serif;font-weight:600;font-size:.98rem;
+    padding:14px 24px;border-radius:999px;border:1px solid transparent;
+    cursor:pointer;transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+    line-height:1;
+  }
+  .btn svg{width:18px;height:18px}
+  .btn-primary{background:var(--btn);color:#fff;box-shadow:0 6px 18px rgba(15,166,120,.32)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(15,166,120,.42)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--ink);background:rgba(127,127,127,.08)}
+  .btn-onink{background:#fff;color:#0E2A22}
+  .btn-onink:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.25)}
+  .btn-onink-ghost{background:transparent;color:var(--on-dark);border-color:rgba(255,255,255,.24)}
+  .btn-onink-ghost:hover{border-color:var(--on-dark);background:rgba(255,255,255,.06)}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:var(--header-bg);
+    backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Sora',sans-serif;font-weight:700;color:var(--ink);font-size:1.08rem}
+  .monogram{
+    width:38px;height:38px;border-radius:10px;flex:0 0 38px;
+    background:var(--panel);color:var(--accent);
+    display:grid;place-items:center;font-family:'Sora',sans-serif;font-weight:800;font-size:.95rem;letter-spacing:.5px;
+  }
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{color:var(--muted);font-weight:500;font-size:.95rem;transition:color .15s ease}
+  .nav-links a:hover{color:var(--ink)}
+  .nav .btn{padding:11px 20px}
+  @media(max-width:860px){ .nav-links{display:none} }
+
+  /* ---------- Hero ---------- */
+  .hero{padding:80px 0 64px}
+  .hero-grid{display:grid;grid-template-columns:1.35fr .9fr;gap:56px;align-items:center}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Sora',sans-serif;font-weight:600;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent-deep);margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent)}
+  .hero h1{font-size:clamp(2.3rem,4.6vw,3.5rem);font-weight:800;letter-spacing:-.02em}
+  .hero h1 u{text-decoration:none;color:var(--accent-deep);box-shadow:inset 0 -.14em 0 rgba(15,166,120,.26)}
+  .hero p.lead{font-size:1.14rem;color:var(--muted);margin:24px 0 34px;max-width:33ch}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+  .hero-card{
+    background:var(--panel);color:var(--on-dark);border-radius:20px;padding:32px;
+    box-shadow:var(--shadow);
+  }
+  .hero-card .mono-lg{
+    width:56px;height:56px;border-radius:14px;background:rgba(15,166,120,.16);
+    color:var(--accent);display:grid;place-items:center;font-family:'Sora',sans-serif;font-weight:800;font-size:1.35rem;margin-bottom:22px;
+  }
+  .hero-card h3{color:#fff;font-size:1.18rem;margin-bottom:6px}
+  .hero-card p{color:rgba(231,236,234,.7);font-size:.95rem;margin-bottom:22px}
+  .facts{list-style:none;display:grid;gap:14px}
+  .facts li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;color:rgba(231,236,234,.9)}
+  .facts svg{width:20px;height:20px;color:var(--accent);flex:0 0 20px;margin-top:1px}
+
+  @media(max-width:860px){
+    .hero{padding:52px 0 40px}
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .hero p.lead{max-width:none}
+    .hero-card{order:2}
+  }
+
+  /* ---------- Trust strip ---------- */
+  .trust{border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:var(--card)}
+  .trust-inner{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:space-between;align-items:center;padding:22px 0}
+  .trust-item{display:flex;align-items:center;gap:11px;color:var(--muted);font-size:.94rem;font-weight:500}
+  .trust-item svg{width:20px;height:20px;color:var(--accent-deep);flex:0 0 20px}
+
+  /* ---------- Section base ---------- */
+  section{padding:78px 0}
+  .sec-head{max-width:640px;margin-bottom:46px}
+  .sec-head .eyebrow{margin-bottom:16px}
+  .sec-head h2{font-size:clamp(1.8rem,3.2vw,2.5rem);letter-spacing:-.015em}
+  .sec-head p{color:var(--muted);font-size:1.08rem;margin-top:14px}
+
+  /* ---------- Services ---------- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .svc{
+    background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);padding:28px;
+    box-shadow:var(--shadow);transition:transform .18s ease, border-color .18s ease;
+  }
+  .svc:hover{transform:translateY(-4px);border-color:rgba(15,166,120,.5)}
+  .svc-ic{
+    width:46px;height:46px;border-radius:11px;background:rgba(15,166,120,.13);
+    display:grid;place-items:center;margin-bottom:18px;
+  }
+  .svc-ic svg{width:24px;height:24px;color:var(--accent-deep)}
+  .svc h3{font-size:1.16rem;margin-bottom:9px}
+  .svc p{color:var(--muted);font-size:.97rem}
+  @media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.cards{grid-template-columns:1fr}}
+
+  /* ---------- Process ---------- */
+  .process{background:var(--panel);color:var(--on-dark)}
+  .process .eyebrow{color:var(--accent)}
+  .process h2{color:#fff}
+  .process .sec-head p{color:rgba(231,236,234,.72)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .step{position:relative;padding-top:20px;border-top:1px solid rgba(231,236,234,.16)}
+  .step .num{font-family:'Sora',sans-serif;font-weight:800;font-size:.9rem;color:var(--accent);letter-spacing:.06em}
+  .step h3{color:#fff;font-size:1.12rem;margin:12px 0 8px}
+  .step p{color:rgba(231,236,234,.72);font-size:.95rem}
+  @media(max-width:820px){.steps{grid-template-columns:repeat(2,1fr);gap:28px}}
+  @media(max-width:480px){.steps{grid-template-columns:1fr}}
+
+  /* ---------- Placeholder note ---------- */
+  .fill-note{
+    display:flex;gap:12px;align-items:flex-start;
+    background:rgba(15,166,120,.10);border:1px dashed var(--accent);border-radius:12px;
+    padding:14px 18px;margin-bottom:30px;font-size:.92rem;color:var(--accent-deep);
+  }
+  .fill-note svg{width:20px;height:20px;flex:0 0 20px;margin-top:2px}
+  .fill-note strong{color:var(--ink)}
+
+  /* ---------- Cases ---------- */
+  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .case{
+    background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+  }
+  .case-img{height:150px;background:var(--panel);display:grid;place-items:center;color:rgba(231,236,234,.5);font-size:.85rem;font-family:'Sora',sans-serif}
+  .case-body{padding:22px}
+  .case-tag{font-family:'Sora',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-deep)}
+  .case h3{font-size:1.1rem;margin:8px 0}
+  .case p{color:var(--muted);font-size:.95rem}
+  @media(max-width:900px){.cases{grid-template-columns:1fr}}
+
+  /* ---------- Testimonials ---------- */
+  .testi{background:var(--card);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+  .quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .quote{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+  .quote .mark{font-family:'Sora',sans-serif;font-weight:800;font-size:2.2rem;color:var(--accent);line-height:.6;height:22px}
+  .quote p{font-size:1.02rem;color:var(--text);margin:6px 0 20px}
+  .quote .who{display:flex;align-items:center;gap:13px}
+  .avatar{width:44px;height:44px;border-radius:50%;background:var(--panel);color:var(--accent);display:grid;place-items:center;font-family:'Sora',sans-serif;font-weight:700;font-size:.9rem;flex:0 0 44px}
+  .who .name{font-family:'Sora',sans-serif;font-weight:600;color:var(--ink);font-size:.96rem}
+  .who .role{color:var(--muted);font-size:.86rem}
+  @media(max-width:760px){.quotes{grid-template-columns:1fr}}
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:820px;margin:0 auto}
+  .qa{border-bottom:1px solid var(--line);}
+  .qa button{
+    width:100%;background:none;border:0;cursor:pointer;text-align:left;
+    display:flex;justify-content:space-between;align-items:center;gap:20px;
+    padding:22px 4px;font-family:'Sora',sans-serif;font-weight:600;font-size:1.05rem;color:var(--ink);
+  }
+  .qa .icn{flex:0 0 22px;width:22px;height:22px;color:var(--accent-deep);transition:transform .2s ease}
+  .qa button[aria-expanded="true"] .icn{transform:rotate(45deg)}
+  .qa button:focus-visible{outline:2px solid var(--accent-deep);outline-offset:3px;border-radius:6px}
+  .qa .ans{max-height:0;overflow:hidden;transition:max-height .28s ease}
+  .qa .ans p{padding:0 4px 22px;color:var(--muted);font-size:1rem}
+
+  /* ---------- Final CTA ---------- */
+  .final{background:var(--panel);color:var(--on-dark);text-align:center}
+  .final h2{color:#fff;font-size:clamp(1.9rem,3.4vw,2.7rem);letter-spacing:-.015em}
+  .final p{color:rgba(231,236,234,.75);font-size:1.12rem;max-width:52ch;margin:18px auto 32px}
+  .final .hero-cta{justify-content:center}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--panel);color:rgba(231,236,234,.7);padding:52px 0 30px}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .foot-brand{max-width:320px}
+  .foot-brand .brand{color:#fff;margin-bottom:14px}
+  .foot-brand p{font-size:.94rem}
+  .foot-col h4{color:#fff;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;font-weight:600}
+  .foot-col a{display:flex;align-items:center;gap:10px;color:rgba(231,236,234,.7);font-size:.95rem;margin-bottom:12px;transition:color .15s ease}
+  .foot-col a:hover{color:var(--accent)}
+  .foot-col svg{width:17px;height:17px;flex:0 0 17px}
+  .foot-bottom{padding-top:22px;font-size:.86rem;color:rgba(231,236,234,.5)}
+
+  /* Floating WhatsApp */
+  .fab{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 26px rgba(37,211,102,.4);transition:transform .15s ease}
+  .fab:hover{transform:scale(1.06)}
+  .fab svg{width:30px;height:30px;color:#fff}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="wrap nav">
+    <a href="#inicio" class="brand">
+      <span class="monogram">LM</span> Leão Martins
+    </a>
+    <nav class="nav-links">
+      <a href="#servicos">Serviços</a>
+      <a href="#processo">Como funciona</a>
+      <a href="#trabalhos">Trabalhos</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <a class="btn btn-primary" href="https://wa.me/5567993103403?text=Ol%C3%A1%2C%20Le%C3%A3o!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.6.2-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.6-1.5-.9-2-.2-.5-.4-.4-.6-.5H6c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 5 4.3.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2A10 10 0 0 0 3.5 17.2L2 22l4.9-1.5A10 10 0 1 0 12 2z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Desenvolvimento • Sites • Consultoria de TI</span>
+      <h1>Software sob medida que resolve o <u>problema certo</u> do seu negócio.</h1>
+      <p class="lead">Transformo processo manual, planilha bagunçada e sistema travado em uma ferramenta que sua equipe usa de verdade — do diagnóstico à evolução, com atendimento direto do desenvolvedor.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://wa.me/5567993103403?text=Ol%C3%A1%2C%20Le%C3%A3o!%20Quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.6.2-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.6-1.5-.9-2-.2-.5-.4-.4-.6-.5H6c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 5 4.3.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2A10 10 0 0 0 3.5 17.2L2 22l4.9-1.5A10 10 0 1 0 12 2z"/></svg>
+          Falar sobre meu projeto
+        </a>
+        <a class="btn btn-ghost" href="#trabalhos">Ver trabalhos</a>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <div class="mono-lg">LM</div>
+      <h3>Atendimento direto, sem intermediário</h3>
+      <p>Você conversa com quem desenvolve — do primeiro contato à entrega.</p>
+      <ul class="facts">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>Baseado em Mato Grosso do Sul — atendo todo o Brasil, presencial ou remoto.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+          <span>Resposta rápida pelo WhatsApp e prazos combinados por escrito.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>Foco em software que funciona na operação real, não só em código bonito.</span>
+        </li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= TRUST STRIP ================= -->
+<div class="trust">
+  <div class="wrap trust-inner">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+      Sistemas em produção
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+      Sites rápidos e responsivos
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg>
+      Contrato e escopo claros
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6l-8-4z"/></svg>
+      Suporte após a entrega
+    </div>
+  </div>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<section id="servicos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">O que eu faço</span>
+      <h2>Serviços pensados para negócios que querem organizar e crescer com tecnologia.</h2>
+    </div>
+    <div class="cards">
+
+      <article class="svc">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+        <h3>Software sob medida</h3>
+        <p>Sistemas feitos para a realidade da sua empresa. Automatizam o que hoje é manual e centralizam a informação que vive espalhada em planilhas.</p>
+      </article>
+
+      <article class="svc">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20M6 6.5h.01M9 6.5h.01"/></svg></div>
+        <h3>Criação de sites</h3>
+        <p>Sites institucionais profissionais, rápidos e responsivos, que transmitem credibilidade e transformam visitas em contatos.</p>
+      </article>
+
+      <article class="svc">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg></div>
+        <h3>Landing pages</h3>
+        <p>Páginas de campanha e lançamento com um objetivo só: captar contatos e converter. Estrutura pensada para anúncios e divulgação.</p>
+      </article>
+
+      <article class="svc">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-3-3-4 4"/></svg></div>
+        <h3>Consultoria de TI</h3>
+        <p>Análise e planejamento para quem precisa decidir com clareza: o que construir, o que comprar pronto e onde investir primeiro.</p>
+      </article>
+
+      <article class="svc">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6a2 2 0 1 0 3 3l6-6a4 4 0 0 0 5.4-5.4l-2.5 2.5-2-2 2.5-2.5z"/></svg></div>
+        <h3>Automação de processos</h3>
+        <p>Menos tarefa repetitiva, menos retrabalho. Integro rotinas e sistemas para a equipe gastar tempo no que importa.</p>
+      </article>
+
+      <article class="svc">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <h3>Manutenção e evolução</h3>
+        <p>Correções, melhorias e novas funcionalidades em sites e sistemas que já existem — com mais estabilidade e desempenho.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="process" id="processo">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Como funciona</span>
+      <h2>Do problema à entrega, um caminho claro.</h2>
+      <p>Sem surpresa no meio do caminho. Você sabe o que vem em cada etapa.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="num">01</span>
+        <h3>Diagnóstico</h3>
+        <p>Entendo o problema real e como a empresa trabalha hoje. Nem sempre a solução é o que se imaginava no começo.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h3>Proposta e escopo</h3>
+        <p>Escopo, prazo e valor por escrito, antes de começar. Você aprova sabendo exatamente o que vai receber.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h3>Desenvolvimento</h3>
+        <p>Construo com entregas acompanhadas de perto, ajustando com você em vez de sumir e voltar no fim.</p>
+      </div>
+      <div class="step">
+        <span class="num">04</span>
+        <h3>Entrega e evolução</h3>
+        <p>Coloco no ar, acompanho o uso e sigo evoluindo conforme o negócio cresce.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORKS / CASES ================= -->
+<section id="trabalhos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Trabalhos</span>
+      <h2>Projetos reais falam mais alto que promessas.</h2>
+    </div>
+
+    <div class="fill-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
+      <span><strong>Para você preencher:</strong> substitua os cartões abaixo por 2 a 3 projetos reais. O que mais converte é dizer o problema do cliente, o que você fez e o resultado concreto (tempo economizado, erro reduzido, etc.). Troque também a imagem por um print real do trabalho.</span>
+    </div>
+
+    <div class="cases">
+      <article class="case">
+        <div class="case-img">[ print do projeto ]</div>
+        <div class="case-body">
+          <span class="case-tag">Software sob medida</span>
+          <h3>Nome do projeto ou cliente</h3>
+          <p>Qual era o problema, o que você construiu e o resultado que gerou. Uma frase curta com um número concreto.</p>
+        </div>
+      </article>
+      <article class="case">
+        <div class="case-img">[ print do projeto ]</div>
+        <div class="case-body">
+          <span class="case-tag">Site institucional</span>
+          <h3>Nome do projeto ou cliente</h3>
+          <p>Qual era o problema, o que você construiu e o resultado que gerou. Uma frase curta com um número concreto.</p>
+        </div>
+      </article>
+      <article class="case">
+        <div class="case-img">[ print do projeto ]</div>
+        <div class="case-body">
+          <span class="case-tag">Automação</span>
+          <h3>Nome do projeto ou cliente</h3>
+          <p>Qual era o problema, o que você construiu e o resultado que gerou. Uma frase curta com um número concreto.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testi">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">O que dizem</span>
+      <h2>A palavra de quem já trabalhou comigo.</h2>
+    </div>
+
+    <div class="fill-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
+      <span><strong>Para você preencher:</strong> peça uma frase por WhatsApp aos seus melhores clientes e cole aqui com nome real e empresa. Depoimento inventado é o maior risco de credibilidade que existe — nunca use texto fictício no ar.</span>
+    </div>
+
+    <div class="quotes">
+      <blockquote class="quote">
+        <div class="mark">&ldquo;</div>
+        <p>Depoimento real do cliente, com uma frase específica sobre o resultado que ele teve com o trabalho.</p>
+        <div class="who">
+          <span class="avatar">?</span>
+          <div><div class="name">Nome do cliente</div><div class="role">Cargo — Empresa</div></div>
+        </div>
+      </blockquote>
+      <blockquote class="quote">
+        <div class="mark">&ldquo;</div>
+        <p>Depoimento real do cliente, com uma frase específica sobre o resultado que ele teve com o trabalho.</p>
+        <div class="who">
+          <span class="avatar">?</span>
+          <div><div class="name">Nome do cliente</div><div class="role">Cargo — Empresa</div></div>
+        </div>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow" style="justify-content:center">Dúvidas frequentes</span>
+      <h2>Antes de chamar no WhatsApp</h2>
+    </div>
+    <div class="faq">
+      <div class="qa">
+        <button type="button" aria-expanded="false" aria-controls="faq-1">Quanto custa um projeto?<span class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="ans" id="faq-1" role="region"><p>Depende do escopo. Cada projeto recebe uma proposta própria, com valor fechado por escrito antes de começar. Me chame no WhatsApp com uma ideia do que precisa e eu retorno com uma estimativa.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false" aria-controls="faq-2">Você atende fora da minha cidade?<span class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="ans" id="faq-2" role="region"><p>Sim. Sou baseado em Mato Grosso do Sul e atendo empresas de todo o Brasil de forma remota, além de presencial na região.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false" aria-controls="faq-3">Quanto tempo leva para ficar pronto?<span class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="ans" id="faq-3" role="region"><p>Um site institucional costuma ser mais rápido; um sistema sob medida depende da complexidade. O prazo é combinado e registrado na proposta, para você não ficar no escuro.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false" aria-controls="faq-4">Depois de pronto, você dá suporte?<span class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="ans" id="faq-4" role="region"><p>Sim. Faço manutenção, correções e evolução do que entrego. Software bom acompanha o crescimento do negócio, não para na entrega.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false" aria-controls="faq-5">Já tenho um site/sistema. Dá para melhorar?<span class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="ans" id="faq-5" role="region"><p>Na maioria dos casos, sim. Avalio o que existe hoje e proponho corrigir, otimizar ou reconstruir — o que fizer mais sentido para o seu caso e orçamento.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final" id="contato">
+  <div class="wrap">
+    <h2>Vamos conversar sobre o seu projeto?</h2>
+    <p>Me conte o que você precisa resolver. Eu retorno com um caminho claro e uma estimativa — sem compromisso.</p>
+    <div class="hero-cta">
+      <a class="btn btn-onink" href="https://wa.me/5567993103403?text=Ol%C3%A1%2C%20Le%C3%A3o!%20Quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.6.2-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.6-1.5-.9-2-.2-.5-.4-.4-.6-.5H6c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 5 4.3.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2A10 10 0 0 0 3.5 17.2L2 22l4.9-1.5A10 10 0 1 0 12 2z"/></svg>
+        Chamar no WhatsApp
+      </a>
+      <a class="btn btn-onink-ghost" href="tel:+5567993103403">(67) 99310-3403</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand"><span class="monogram">LM</span> Leão Martins</div>
+        <p>Desenvolvedor de software sob medida, criador de sites e consultor de TI. Baseado em Mato Grosso do Sul, atendendo todo o Brasil.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Navegação</h4>
+        <a href="#servicos">Serviços</a>
+        <a href="#processo">Como funciona</a>
+        <a href="#trabalhos">Trabalhos</a>
+        <a href="#faq">Dúvidas</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <a href="https://wa.me/5567993103403" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.6.2-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.6-1.5-.9-2-.2-.5-.4-.4-.6-.5H6c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 5 4.3.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2A10 10 0 0 0 3.5 17.2L2 22l4.9-1.5A10 10 0 1 0 12 2z"/></svg>
+          (67) 99310-3403
+        </a>
+        <a href="https://www.leaomartins.com.br" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg>
+          www.leaomartins.com.br
+        </a>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Leão Martins — Desenvolvedor de Software, Sites e Consultoria de TI.</div>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/5567993103403?text=Ol%C3%A1%2C%20Le%C3%A3o!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.6.2-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.6-1.5-.9-2-.2-.5-.4-.4-.6-.5H6c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 5 4.3.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2A10 10 0 0 0 3.5 17.2L2 22l4.9-1.5A10 10 0 1 0 12 2z"/></svg>
+</a>
+
+<script>
+  document.querySelectorAll('.qa button').forEach(function(btn){
+    var ans = document.getElementById(btn.getAttribute('aria-controls'));
+    btn.addEventListener('click', function(){
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      ans.style.maxHeight = open ? null : ans.scrollHeight + 'px';
+    });
+  });
+
+  /* Reajusta a altura do item aberto quando a janela muda de largura. */
+  window.addEventListener('resize', function(){
+    document.querySelectorAll('.qa button[aria-expanded="true"]').forEach(function(btn){
+      var ans = document.getElementById(btn.getAttribute('aria-controls'));
+      ans.style.maxHeight = 'none';
+      var h = ans.scrollHeight;
+      ans.style.maxHeight = h + 'px';
+    });
+  });
+</script>
+
+</body>
+</html>
