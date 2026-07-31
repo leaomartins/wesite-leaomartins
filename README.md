@@ -67,6 +67,8 @@ duas páginas HTML renderizadas com Chrome headless:
 - **JSON-LD** (`@graph` no fim do `index.html`): `ProfessionalService` com catálogo dos
   seis serviços, `Person`, `WebSite` e `FAQPage`.
 - `robots.txt` e `sitemap.xml`.
+- 301 de HTTP para HTTPS e de `www` para o domínio sem `www`; gzip e cache de assets.
+  Detalhes e armadilhas em [`deploy/README.md`](deploy/README.md).
 
 > O `FAQPage` só rende rich result se o texto do schema for **idêntico** ao texto visível
 > na página. Ao editar uma pergunta do FAQ no HTML, edite a cópia no JSON-LD também.
