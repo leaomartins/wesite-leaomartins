@@ -32,6 +32,50 @@ python3 -m http.server 8000
 - Mobile-first funcional: todos os grids colapsam para 1 coluna no celular.
 - SEO básico: `title`, meta description, Open Graph, canonical.
 
+## Marca
+
+Duas marcas, cada uma no tamanho em que funciona:
+
+- **Leão** — marca principal (header, cartão do herói, rodapé, `og-image.png`). Juba feita
+  de 12 círculos em volta de um disco central; rosto em disco escuro com sobrancelhas,
+  olhos, focinho triangular e boca felina. Definida **uma vez** como `<symbol id="lion">`
+  e reaproveitada com `<use>`.
+- **Monograma LM** — só no favicon e no `apple-touch-icon.png`, onde 16px exige um desenho
+  que o leão não sustenta.
+
+> O `<use>` monta uma **shadow tree**, e seletores CSS de fora não alcançam o conteúdo
+> clonado. Por isso as cores da marca entram como custom properties (`var(--accent)`,
+> `var(--mark-face)`) direto nos atributos do `<symbol>` — custom properties herdam para
+> dentro do shadow DOM, seletores não. Mudar isso para `.mark .mane{fill:...}` quebra
+> silenciosamente: o SVG some ou fica preto.
+
+`--mark-face` é o rosto do leão. O padrão é `var(--panel)`; nas seções escuras
+(`.hero-card`, `footer`, `.final`) vira `#0B1712`, senão o rosto se dissolve no painel.
+
+Para regerar `og-image.png` e `apple-touch-icon.png`, os fontes ficam fora do repo — são
+duas páginas HTML renderizadas com Chrome headless:
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+  --disable-gpu --hide-scrollbars --virtual-time-budget=4000 \
+  --screenshot=og-image.png --window-size=1200,630 "file://$PWD/og.html"
+```
+
+## SEO
+
+- `title`, meta description, canonical, Open Graph completo e `twitter:image`.
+- **JSON-LD** (`@graph` no fim do `index.html`): `ProfessionalService` com catálogo dos
+  seis serviços, `Person`, `WebSite` e `FAQPage`.
+- `robots.txt` e `sitemap.xml`.
+
+> O `FAQPage` só rende rich result se o texto do schema for **idêntico** ao texto visível
+> na página. Ao editar uma pergunta do FAQ no HTML, edite a cópia no JSON-LD também.
+> Para conferir, veja o script de validação no histórico deste repo — ele carrega o
+> JSON e testa se cada pergunta e resposta aparece literalmente no HTML.
+
+Nada de `aggregateRating`, `review` ou contagem de clientes no schema: métrica inventada
+em dado estruturado é penalizada pelo Google e trivial de verificar.
+
 ## Paleta
 
 | Token           | Claro     | Escuro    | Uso                                  |
@@ -70,9 +114,7 @@ que existe — nunca publicar texto fictício.
       OneNext e I.E.R.C. que podem ser citados nominalmente no site.
 - [ ] **Depoimentos de verdade**: quando houver, pedir uma frase por WhatsApp e publicar
       com nome e empresa reais — nunca texto fictício.
-- [ ] **Imagem de compartilhamento**: criar uma imagem 1200×630 e adicionar
-      `<meta property="og:image">`. Hoje a `twitter:card` está como
-      `summary_large_image` sem imagem associada.
+- [x] **Imagem de compartilhamento**: `og-image.png` (1200×630) publicada e referenciada.
 - [ ] Remover os blocos `.fill-note` (e a regra CSS correspondente) depois de preencher.
 
 ## Contato

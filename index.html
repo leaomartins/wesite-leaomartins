@@ -15,10 +15,18 @@
 <meta property="og:title" content="Leão Martins | Software sob medida, sites e consultoria de TI" />
 <meta property="og:description" content="Software que resolve o problema certo do seu negócio. Do diagnóstico à evolução, com atendimento direto do desenvolvedor." />
 <meta property="og:url" content="https://leaomartins.com.br/" />
+<meta property="og:image" content="https://leaomartins.com.br/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Leão Martins — software sob medida, sites e consultoria de TI" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://leaomartins.com.br/og-image.png" />
 <meta name="theme-color" content="#F4F5F6" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#0B1712" media="(prefers-color-scheme: dark)" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E2A22'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Verdana,sans-serif' font-size='23' font-weight='bold' fill='%230FA678'%3ELM%3C/text%3E%3C/svg%3E" />
+
+<!-- Favicon: monograma LM, que continua legível a 16px. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%230E2A22'/%3E%3Cpath d='M17 17v30h13' stroke='%230FA678' stroke-width='5.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M34 47V21l6.5 11L47 21v26' stroke='%23ffffff' stroke-width='5.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -105,11 +113,11 @@
   }
   .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
   .brand{display:flex;align-items:center;gap:12px;font-family:'Sora',sans-serif;font-weight:700;color:var(--ink);font-size:1.08rem}
-  .monogram{
-    width:38px;height:38px;border-radius:10px;flex:0 0 38px;
-    background:var(--panel);color:var(--accent);
-    display:grid;place-items:center;font-family:'Sora',sans-serif;font-weight:800;font-size:.95rem;letter-spacing:.5px;
-  }
+  /* Marca do leão. O <use> monta uma shadow tree, onde seletores CSS não
+     alcançam — por isso as cores entram como custom properties, que herdam.
+     --mark-face muda nas seções escuras para o rosto não sumir no painel. */
+  .mark{width:38px;height:38px;flex:0 0 38px;display:block;--mark-face:var(--panel)}
+  .hero-card .mark,footer .mark,.final .mark{--mark-face:#0B1712}
   .nav-links{display:flex;gap:30px;align-items:center}
   .nav-links a{color:var(--muted);font-weight:500;font-size:.95rem;transition:color .15s ease}
   .nav-links a:hover{color:var(--ink)}
@@ -134,10 +142,7 @@
     background:var(--panel);color:var(--on-dark);border-radius:20px;padding:32px;
     box-shadow:var(--shadow);
   }
-  .hero-card .mono-lg{
-    width:56px;height:56px;border-radius:14px;background:rgba(15,166,120,.16);
-    color:var(--accent);display:grid;place-items:center;font-family:'Sora',sans-serif;font-weight:800;font-size:1.35rem;margin-bottom:22px;
-  }
+  .hero-card .mark-lg{width:60px;height:60px;flex:0 0 60px;margin-bottom:22px}
   .hero-card h3{color:#fff;font-size:1.18rem;margin-bottom:6px}
   .hero-card p{color:rgba(231,236,234,.7);font-size:.95rem;margin-bottom:22px}
   .facts{list-style:none;display:grid;gap:14px}
@@ -278,11 +283,33 @@
 </head>
 <body>
 
+<!-- Definição única da marca; reaproveitada com <use> no header, herói e rodapé. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="lion" viewBox="0 0 64 64">
+    <g fill="var(--accent)">
+      <circle cx="53" cy="32" r="8"/><circle cx="50.19" cy="42.5" r="8"/><circle cx="42.5" cy="50.19" r="8"/>
+      <circle cx="32" cy="53" r="8"/><circle cx="21.5" cy="50.19" r="8"/><circle cx="13.81" cy="42.5" r="8"/>
+      <circle cx="11" cy="32" r="8"/><circle cx="13.81" cy="21.5" r="8"/><circle cx="21.5" cy="13.81" r="8"/>
+      <circle cx="32" cy="11" r="8"/><circle cx="42.5" cy="13.81" r="8"/><circle cx="50.19" cy="21.5" r="8"/>
+      <circle cx="32" cy="32" r="21"/>
+    </g>
+    <circle cx="32" cy="32" r="15" fill="var(--mark-face)"/>
+    <g stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" fill="none">
+      <path d="M23.5 26.5 29 28.2"/><path d="M40.5 26.5 35 28.2"/>
+      <path d="M27.5 40.2c1.3 2.2 3.3 2.2 4.5 0"/><path d="M32 40.2c1.2 2.2 3.2 2.2 4.5 0"/>
+      <path d="M32 34.6v3.4"/>
+    </g>
+    <circle cx="26.8" cy="31.5" r="1.9" fill="var(--accent)"/>
+    <circle cx="37.2" cy="31.5" r="1.9" fill="var(--accent)"/>
+    <path d="M28.9 32.9h6.2L32 36.2z" fill="var(--accent)"/>
+  </symbol>
+</svg>
+
 <!-- ================= HEADER ================= -->
 <header>
   <div class="wrap nav">
     <a href="#inicio" class="brand">
-      <span class="monogram">LM</span> Leão Martins
+      <svg class="mark" aria-hidden="true"><use href="#lion"/></svg> Leão Martins
     </a>
     <nav class="nav-links">
       <a href="#servicos">Serviços</a>
@@ -315,7 +342,7 @@
     </div>
 
     <aside class="hero-card">
-      <div class="mono-lg">LM</div>
+      <svg class="mark mark-lg" aria-hidden="true"><use href="#lion"/></svg>
       <h3>Atendimento direto, sem intermediário</h3>
       <p>Você conversa com quem desenvolve — do primeiro contato à entrega.</p>
       <ul class="facts">
@@ -604,7 +631,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <div class="brand"><span class="monogram">LM</span> Leão Martins</div>
+        <div class="brand"><svg class="mark" aria-hidden="true"><use href="#lion"/></svg> Leão Martins</div>
         <p>Desenvolvedor de software sob medida, criador de sites e consultor de TI. Baseado em Mato Grosso do Sul, atendendo todo o Brasil.</p>
       </div>
       <div class="foot-col">
@@ -654,6 +681,100 @@
       ans.style.maxHeight = h + 'px';
     });
   });
+</script>
+
+<!-- Dados estruturados. Só fatos verificáveis: nada de nota, avaliação ou
+     contagem de clientes inventada — isso é penalizado e é fácil de checar.
+     As perguntas abaixo repetem, palavra por palavra, o FAQ visível na página;
+     o Google exige que o texto bata para exibir o rich result. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://leaomartins.com.br/#negocio",
+      "name": "Leão Martins",
+      "description": "Desenvolvimento de software sob medida, criação de sites e consultoria de TI para pequenas e médias empresas.",
+      "url": "https://leaomartins.com.br/",
+      "telephone": "+5567993103403",
+      "image": "https://leaomartins.com.br/og-image.png",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "MS",
+        "addressCountry": "BR"
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "Brasil" },
+        { "@type": "State", "name": "Mato Grosso do Sul" }
+      ],
+      "founder": { "@id": "https://leaomartins.com.br/#pessoa" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software sob medida", "description": "Sistemas feitos para a realidade da empresa, que automatizam o que hoje é manual e centralizam informação espalhada em planilhas." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Criação de sites", "description": "Sites institucionais rápidos e responsivos, que transmitem credibilidade e transformam visitas em contatos." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing pages", "description": "Páginas de campanha e lançamento estruturadas para captar contatos e converter." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consultoria de TI", "description": "Análise e planejamento sobre o que construir, o que comprar pronto e onde investir primeiro." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automação de processos", "description": "Integração de rotinas e sistemas para reduzir tarefa repetitiva e retrabalho." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manutenção e evolução", "description": "Correções, melhorias e novas funcionalidades em sites e sistemas que já existem." } }
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://leaomartins.com.br/#pessoa",
+      "name": "Leão Martins",
+      "jobTitle": "Desenvolvedor de software e consultor de TI",
+      "url": "https://leaomartins.com.br/",
+      "telephone": "+5567993103403",
+      "sameAs": ["https://github.com/leaomartins"],
+      "knowsAbout": ["Desenvolvimento de software sob medida", "Criação de sites", "Consultoria de TI", "Automação de processos", "Integração de sistemas"],
+      "address": { "@type": "PostalAddress", "addressRegion": "MS", "addressCountry": "BR" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://leaomartins.com.br/#site",
+      "url": "https://leaomartins.com.br/",
+      "name": "Leão Martins",
+      "inLanguage": "pt-BR",
+      "publisher": { "@id": "https://leaomartins.com.br/#negocio" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://leaomartins.com.br/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quanto custa um projeto?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Depende do escopo. Cada projeto recebe uma proposta própria, com valor fechado por escrito antes de começar. Me chame no WhatsApp com uma ideia do que precisa e eu retorno com uma estimativa." }
+        },
+        {
+          "@type": "Question",
+          "name": "Você atende fora da minha cidade?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sim. Sou baseado em Mato Grosso do Sul e atendo empresas de todo o Brasil de forma remota, além de presencial na região." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto tempo leva para ficar pronto?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Um site institucional costuma ser mais rápido; um sistema sob medida depende da complexidade. O prazo é combinado e registrado na proposta, para você não ficar no escuro." }
+        },
+        {
+          "@type": "Question",
+          "name": "Depois de pronto, você dá suporte?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sim. Faço manutenção, correções e evolução do que entrego. Software bom acompanha o crescimento do negócio, não para na entrega." }
+        },
+        {
+          "@type": "Question",
+          "name": "Já tenho um site/sistema. Dá para melhorar?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Na maioria dos casos, sim. Avalio o que existe hoje e proponho corrigir, otimizar ou reconstruir — o que fizer mais sentido para o seu caso e orçamento." }
+        }
+      ]
+    }
+  ]
+}
 </script>
 
 </body>
